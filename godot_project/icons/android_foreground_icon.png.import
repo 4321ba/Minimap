@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/android_foreground_icon.png-2ed6617a51842d803d1f85dd51b579d0.image"
+
+[deps]
+
+source_file="res://icons/android_foreground_icon.png"
+dest_files=[ "res://.import/android_foreground_icon.png-2ed6617a51842d803d1f85dd51b579d0.image" ]
+
+[params]
+

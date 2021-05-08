@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://maps/main_menu/skill_row.gd" type="Script" id=1]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_medium.tres" type="DynamicFont" id=2]
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_small.tres" type="DynamicFont" id=4]
+
+[node name="skill_row" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="skill_name_label" type="Label" parent="."]
+light_mask = 0
+margin_top = 340.0
+margin_right = 205.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 205, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "skill name"
+
+[node name="current" type="Label" parent="."]
+light_mask = 0
+margin_left = 225.0
+margin_top = 340.0
+margin_right = 325.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "9.8"
+align = 1
+
+[node name="next" type="Label" parent="."]
+light_mask = 0
+margin_left = 345.0
+margin_top = 340.0
+margin_right = 445.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "9.9"
+align = 1
+
+[node name="plus_one_button" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 465.0
+margin_top = 330.0
+margin_right = 545.0
+margin_bottom = 390.0
+rect_min_size = Vector2( 80, 0 )
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "8"
+
+[node name="difficulty_change" type="Label" parent="."]
+light_mask = 0
+margin_left = 565.0
+margin_top = 340.0
+margin_right = 615.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="skill_description" type="Label" parent="."]
+light_mask = 0
+margin_left = 635.0
+margin_top = 345.0
+margin_right = 1280.0
+margin_bottom = 374.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "skill description"
+align = 3
+autowrap = true
+[connection signal="pressed" from="plus_one_button" to="." method="_on_plus_one_button_pressed"]

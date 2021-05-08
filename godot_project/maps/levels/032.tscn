@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/levels_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/dark_red.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/enemies/purple.tscn" type="PackedScene" id=3]
+
+[node name="levels_base" instance=ExtResource( 1 )]
+
+[node name="tilemap" parent="ground" index="0"]
+tile_data = PoolIntArray( -65540, 0, 131074, -65539, 0, 131073, -65538, 0, 131073, -65537, 0, 131073, -131072, 0, 131073, -131071, 0, 131073, -131070, 0, 131073, -131069, 0, 131075, -4, 0, 65537, -3, 0, 196608, -2, 0, 196608, -1, 0, 196608, -65536, 0, 196608, -65535, 0, 196608, -65534, 0, 196608, -65533, 0, 65536, 65532, 0, 196610, 65533, 0, 196609, 65534, 0, 196609, 65535, 0, 196609, 0, 0, 196609, 1, 0, 196609, 2, 0, 196609, 3, 0, 196611 )
+
+[node name="dark_red" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( -191.579, -26.3158 )
+
+[node name="purple" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 194.737, -23.1579 )
+
+[editable path="ground"]

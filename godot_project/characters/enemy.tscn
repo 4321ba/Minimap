@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemy.gd" type="Script" id=2]
+[ext_resource path="res://sounds/sound_effects/notice.wav" type="AudioStream" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 256.0
+height = 192.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.0
+
+[node name="enemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="view_distance" type="Area2D" parent="." index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="view_distance" index="0"]
+position = Vector2( 0, -128 )
+shape = SubResource( 1 )
+
+[node name="attack_distance" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_distance" index="0"]
+position = Vector2( 0, -48 )
+shape = SubResource( 2 )
+
+[node name="idle_timer" type="Timer" parent="." index="2"]
+one_shot = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
+
+[node name="notice" type="AudioStreamPlayer2D" parent="audio" index="4"]
+stream = ExtResource( 3 )
+max_distance = 10000.0
+bus = "sound_effects"
+[connection signal="body_entered" from="view_distance" to="." method="_on_view_distance_body_entered"]
+[connection signal="body_exited" from="view_distance" to="." method="_on_view_distance_body_exited"]
+[connection signal="body_entered" from="attack_distance" to="." method="_on_attack_distance_body_entered"]
+[connection signal="body_exited" from="attack_distance" to="." method="_on_attack_distance_body_exited"]
+[connection signal="timeout" from="idle_timer" to="." method="_on_idle_timer_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

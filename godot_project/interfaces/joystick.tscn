@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://interfaces/joystick.gd" type="Script" id=1]
+
+[node name="joystick" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 500, 500 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+big_detail = 7
+small_detail = 5
+small_radius = 30
+
+[node name="big_circle" type="Polygon2D" parent="."]
+light_mask = 0
+position = Vector2( 200, 300 )
+color = Color( 0.196078, 0.0588235, 0.0588235, 1 )
+polygon = PoolVector2Array( 100, 0, 62.349, 78.1832, -22.2521, 97.4928, -90.0969, 43.3884, -90.0969, -43.3884, -22.2521, -97.4928, 62.349, -78.1832 )
+
+[node name="small_circle" type="Polygon2D" parent="big_circle"]
+light_mask = 0
+color = Color( 0.392157, 0.117647, 0.117647, 1 )
+polygon = PoolVector2Array( 30, 0, 9.27051, 28.5317, -24.2705, 17.6336, -24.2705, -17.6336, 9.27051, -28.5317 )
+[connection signal="gui_input" from="." to="." method="_on_joystick_gui_input"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interfaces/touch_overlay.gd" type="Script" id=1]
+[ext_resource path="res://interfaces/joystick.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 250, 250 )
+
+[node name="touch_overlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="splitter" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="left" type="VBoxContainer" parent="splitter"]
+margin_right = 500.0
+margin_bottom = 720.0
+
+[node name="jostick_aligner" type="Control" parent="splitter/left"]
+margin_right = 500.0
+margin_bottom = 216.0
+size_flags_vertical = 3
+
+[node name="joystick" parent="splitter/left" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 220.0
+margin_right = 500.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="middle_align" type="Control" parent="splitter"]
+margin_left = 504.0
+margin_right = 1026.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+
+[node name="right" type="VBoxContainer" parent="splitter"]
+margin_left = 1030.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+
+[node name="aligner" type="Control" parent="splitter/right"]
+margin_right = 250.0
+margin_bottom = 466.0
+size_flags_vertical = 3
+
+[node name="hit_aligner" type="Control" parent="splitter/right"]
+margin_top = 470.0
+margin_right = 250.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="hit_button" type="TouchScreenButton" parent="splitter/right/hit_aligner"]
+shape = SubResource( 1 )
+shape_centered = false

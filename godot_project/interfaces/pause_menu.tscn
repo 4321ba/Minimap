@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://interfaces/pause_menu.gd" type="Script" id=1]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://maps/main_menu/click_audio_player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://maps/themes_and_styles/button_medium.theme" type="Theme" id=5]
+
+[node name="pause_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fader" type="ColorRect" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 300
+custom_constants/margin_top = 0
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 300.0
+margin_right = 980.0
+margin_bottom = 720.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="level_completed_label" type="Label" parent="MarginContainer/VBoxContainer"]
+light_mask = 0
+margin_top = 1.0
+margin_right = 680.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 2 )
+text = "Level %s completed!"
+align = 1
+
+[node name="resume_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 680.0
+margin_bottom = 168.0
+text = "Resume"
+
+[node name="skills_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 218.0
+margin_right = 680.0
+margin_bottom = 278.0
+theme = ExtResource( 5 )
+text = "Skills"
+
+[node name="next_level_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 328.0
+margin_right = 680.0
+margin_bottom = 388.0
+text = "Next Level"
+
+[node name="restart_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 438.0
+margin_right = 680.0
+margin_bottom = 498.0
+text = "Restart"
+
+[node name="select_level_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 548.0
+margin_right = 680.0
+margin_bottom = 608.0
+text = "Select Level"
+
+[node name="quit_to_menu_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 658.0
+margin_right = 680.0
+margin_bottom = 718.0
+text = "Quit to Menu"
+
+[node name="click" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/skills_button" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/next_level_button" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/select_level_button" to="." method="_on_select_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_to_menu_button" to="." method="_on_quit_to_menu_button_pressed"]

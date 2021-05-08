@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/themes_and_styles/button.theme" type="Theme" id=1]
+[ext_resource path="res://maps/main_menu/button.gd" type="Script" id=2]
+[ext_resource path="res://maps/main_menu/click_audio_player.tscn" type="PackedScene" id=3]
+
+[node name="button" type="Button"]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="click" parent="." instance=ExtResource( 3 )]

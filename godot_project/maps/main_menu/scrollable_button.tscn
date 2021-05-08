@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/main_menu/scrollable_button.gd" type="Script" id=2]
+
+[node name="scrollable_button" instance=ExtResource( 1 )]
+mouse_filter = 1
+script = ExtResource( 2 )
+[connection signal="pressed" from="." to="." method="_on_scrollable_button_pressed"]

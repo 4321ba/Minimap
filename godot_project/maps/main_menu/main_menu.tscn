@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://maps/main_menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 100.0
+margin_right = 1180.0
+margin_bottom = 720.0
+custom_constants/separation = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 391.0
+margin_bottom = 213.0
+size_flags_vertical = 0
+custom_constants/margin_top = 100
+
+[node name="title" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer"]
+light_mask = 0
+margin_top = 100.0
+margin_right = 391.0
+margin_bottom = 213.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 7
+custom_constants/shadow_offset_y = 5
+text = "Minimap"
+align = 1
+
+[node name="aligner" type="Control" parent="MarginContainer/HBoxContainer"]
+margin_left = 491.0
+margin_right = 724.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 824.0
+margin_right = 1080.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 256, 0 )
+custom_constants/separation = 50
+alignment = 1
+
+[node name="levels_button" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 110.0
+margin_right = 256.0
+margin_bottom = 170.0
+text = "Levels"
+
+[node name="skills_button" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 220.0
+margin_right = 256.0
+margin_bottom = 280.0
+text = "Skills"
+
+[node name="options_button" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 330.0
+margin_right = 256.0
+margin_bottom = 390.0
+text = "Options"
+
+[node name="help_button" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 440.0
+margin_right = 256.0
+margin_bottom = 500.0
+text = "Help"
+
+[node name="quit_button" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 550.0
+margin_right = 256.0
+margin_bottom = 610.0
+text = "Quit"
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/levels_button" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/skills_button" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/help_button" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

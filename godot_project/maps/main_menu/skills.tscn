@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://maps/main_menu/skills.gd" type="Script" id=1]
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://maps/main_menu/click_audio_player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://maps/themes_and_styles/ubuntu_small.tres" type="DynamicFont" id=5]
+
+[node name="skills" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_right = 1230.0
+margin_bottom = 720.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 292.0
+margin_right = 1180.0
+margin_bottom = 352.0
+custom_constants/separation = 20
+
+[node name="name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+light_mask = 0
+margin_top = 10.0
+margin_right = 180.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 180, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "Name:"
+
+[node name="current" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+light_mask = 0
+margin_left = 200.0
+margin_top = 10.0
+margin_right = 335.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 135, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "Current:"
+align = 2
+
+[node name="next" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+light_mask = 0
+margin_left = 355.0
+margin_top = 10.0
+margin_right = 474.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 119, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "Next:"
+
+[node name="usable_points" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+light_mask = 0
+margin_left = 494.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "%s Points Remaining"
+
+[node name="respec_button" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1030.0
+margin_right = 1180.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 1
+text = "Reset"
+
+[node name="HBoxContainerBottom" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 367.0
+margin_right = 1180.0
+margin_bottom = 427.0
+
+[node name="difficulty_help" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerBottom"]
+light_mask = 0
+margin_top = 15.0
+margin_right = 1026.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "difficulty text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" parent="MarginContainer/VBoxContainer/HBoxContainerBottom" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1030.0
+margin_right = 1180.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 1
+text = "Back"
+
+[node name="click" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/respec_button" to="." method="_on_respec_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainerBottom/back_button" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=1]
+
+[node name="purple" instance=ExtResource( 1 )]
+attack_alert_time = 0.6
+strength = 3
+enemy_stun_time = 0.4
+max_health = 13
+speed = 110
+can_kite = true
+
+[node name="polygon" parent="." index="5"]
+color = Color( 0.5, 0, 0.5, 1 )

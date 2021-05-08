@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://autoload/scene_transitioner.gd" type="Script" id=1]
+
+[node name="scene_transitioner" type="CanvasLayer"]
+pause_mode = 2
+layer = 10
+script = ExtResource( 1 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="fader" type="ColorRect" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

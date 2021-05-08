@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/main_menu/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interfaces/pause_button_overlay.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 160 )
+
+[node name="pause_button_overlay" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause_button" parent="." instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+action_mode = 0
+enabled_focus_mode = 0
+text = "II"
+
+[node name="touch_pause_button" type="TouchScreenButton" parent="pause_button"]
+shape = SubResource( 1 )
+shape_centered = false
+[connection signal="pressed" from="pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="pause_button/touch_pause_button" to="." method="_on_touch_pause_button_pressed"]

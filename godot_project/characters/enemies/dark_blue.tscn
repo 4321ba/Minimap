@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/attack_alerts/capsule.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0
+height = 96.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 48.0
+height = 128.0
+
+[node name="dark_blue" instance=ExtResource( 1 )]
+attack_delay = 2.5
+attack_alert_time = 1.0
+strength = 7
+max_health = 30
+light_animation_time = 0.15
+
+[node name="CollisionShape2D" parent="attack_distance" index="0"]
+position = Vector2( 0, -96 )
+shape = SubResource( 1 )
+
+[node name="polygon" parent="." index="5"]
+color = Color( 0, 0, 0.5, 1 )
+
+[node name="CollisionShape2D" parent="hit_distance" index="0"]
+position = Vector2( 0, -128 )
+shape = SubResource( 2 )
+
+[node name="attack_alert" parent="." index="14"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -92 )

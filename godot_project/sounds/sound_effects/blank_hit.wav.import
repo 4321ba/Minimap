@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blank_hit.wav-5f06132e657f904ec7a9017293d3a1b8.sample"
+
+[deps]
+
+source_file="res://sounds/sound_effects/blank_hit.wav"
+dest_files=[ "res://.import/blank_hit.wav-5f06132e657f904ec7a9017293d3a1b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

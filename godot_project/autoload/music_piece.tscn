@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://autoload/music_piece.gd" type="Script" id=1]
+
+[node name="music_piece" type="AudioStreamPlayer"]
+bus = "music"
+script = ExtResource( 1 )
+
+[node name="tween" type="Tween" parent="."]
+[connection signal="finished" from="." to="." method="_on_music_piece_finished"]
