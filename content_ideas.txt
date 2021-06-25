@@ -1,0 +1,5 @@
+area of effect powerups + blue enemy bean attack temporarily
+enemy spawner?
+enemy with assymetric attack, with both oval and circle attacks, switching beween them
+arti, that attacks from afar, in a smaller circle
+an enemy faster than the player
