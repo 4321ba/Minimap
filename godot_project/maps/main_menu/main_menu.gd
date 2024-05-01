@@ -9,7 +9,7 @@ func _ready():
 	levels_button.grab_focus()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and config_loader.get_data("settings", "use_touch_input"):
+	if event.is_action_pressed("ui_cancel") and config_loader.get_data("settings", "input_method") == config_loader.TOUCHSCREEN:
 		quit_button.get_node("click").play()
 		quit()
 

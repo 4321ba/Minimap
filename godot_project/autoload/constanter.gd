@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION = "minimap_v1.0.0_development"
+const VERSION = "minimap_v1.1.0_development"
 const BASE_PLAYER_SPECS = {
 	"attack_delay": 1.5,
 	"attack_alert_time": 0.5,
@@ -41,7 +41,7 @@ const SPEC_DESCRIPTIONS = {
 }
 const OPTION_CATEGORIES = {
 	"gameplay": ["difficulty"],
-	"interface": ["use_touch_input", "animated_menu", "show_scrollbar", "show_pause_button"],
+	"interface": ["input_method", "animated_menu", "show_scrollbar", "show_pause_button"],
 	"graphics": ["lighting", "screen_shaking", "fullscreen", "vsync"],
 	"sounds": ["music", "sound_effects"],
 }
@@ -52,7 +52,7 @@ const CATEGORY_TEXTS = {
 	"sounds": "Sounds",
 }
 const OPTION_TEXTS = {
-	"use_touch_input": ["Input: Keyboard", "Input: Touchscreen"],
+	"input_method": ["Input: Keyboard", "Input: Touchscreen", "Input: Magic Remote"],
 	"show_scrollbar": ["Scrollbar: Hidden", "Scrollbar: Shown"],
 	"music": ["Music: Off", "Music: 20%", "Music: 40%", "Music: 60%", "Music: 80%", "Music: 100%"],
 	"sound_effects": ["Sound effects: Off", "Sound effects: 20%", "Sound effects: 40%", "Sound effects: 60%", "Sound effects: 80%", "Sound effects: 100%"],
@@ -65,7 +65,7 @@ const OPTION_TEXTS = {
 	"difficulty": ["Difficulty: Easy", "Difficulty: Medium", "Difficulty: Hard"],
 }
 var help = {
-	"Controls": "PC: move with WASD or arrows and hit with Space. Go back or pause with Escape or 0 (zero). On web with fullscreen use 0 instead of Escape to not escape from fullscreen.\n\nMobile: move with the joystick and hit with tapping the bottom right of the screen. The pause button has a bigger hitbox than it seems. Escape with the phone back button, if you have one. If you're on the web, set the Use touch input option.",
+	"Controls": "PC: move with WASD or arrows and hit with Space. Go back or pause with Escape or 0 (zero). On web with fullscreen use 0 instead of Escape to not escape from fullscreen.\n\nMobile: move with the joystick and hit with tapping the bottom right of the screen. The pause button has a bigger hitbox than it seems. Escape with the phone back button, if you have one. If you're on the web, set the Use touch input option.\n\nMagic Remote: move with either the arrows, or with mouse / smart remote pointer, pointing and clicking in the direction you want to move, and hit with the 5 button. Go back or pause with 0 (zero).",
 	"Combat": "When you start hitting, you become immobile for a little bit, and when you finish your attack, the enemies in your reach take damage and become immobile. Same applies for enemies: they can't move while they attack, but they stun you if you get hit.",
 	"Levels": "Every ninth level is a boss level with light red name in the level select screen, and you get new content (e.g. new enemies) in the next level. You can complete a level in the 3 difficulty levels (Easy, Medium, Hard), and the highest one you completed the level in will be stored: you can see it from the color of the level buttons.",
 	"Skill points": "You get skill points after defeating boss levels, capped at the number of the boss level (e.g. after defeating the third boss you get 3 points overall counting the already assigned ones). You can respec only after directly defeating a boss level and you get as much skill points as the number of the boss level. To unlock a new level you have to defeat every enemy in the previous level, in any difficulty.",

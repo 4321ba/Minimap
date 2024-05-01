@@ -3,13 +3,14 @@ extends Node
 const SAVE_PATH = "user://data.cfg"
 var _config_file = ConfigFile.new()
 
+enum {KEYBOARD, TOUCHSCREEN, MAGIC_REMOTE}
 enum {LIT, CHALLENGING, UNLIT}
 enum {SHAKING, PLAYER_ONLY, NONSHAKING}
 enum {DIFFICULTY_NONE = -1, EASY, MEDIUM, HARD}
 
 var _data = {
 	"settings": {
-		"use_touch_input": false,
+		"input_method": KEYBOARD,
 		"show_scrollbar": true,
 		"music": 4,
 		"sound_effects": 5,
@@ -47,8 +48,8 @@ func _ready():
 		_data["level_difficulties_done"][level] = DIFFICULTY_NONE
 	load_settings()
 	if OS.get_name() == "Android":
-		if _config_file.get_value("settings", "use_touch_input") == null:
-			set_data("settings", "use_touch_input", true)
+		if _config_file.get_value("settings", "input_method") == null:
+			set_data("settings", "input_method", TOUCHSCREEN)
 		if _config_file.get_value("settings", "show_pause_button") == null:
 			set_data("settings", "show_pause_button", true)
 		if _config_file.get_value("settings", "lighting") == null:
