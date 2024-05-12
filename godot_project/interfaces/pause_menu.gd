@@ -20,7 +20,8 @@ onready var is_boss_level = current_level_id % 9 == 0
 func _ready():
 	communicator.pause_menu = self
 	visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if config_loader.get_data("settings", "input_method") == config_loader.KEYBOARD:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	var str_next_id = str(current_level_id + 1)
 	if str_next_id.length() == 1:
 		str_next_id = "0" + str_next_id
@@ -83,7 +84,8 @@ func resume():
 	get_tree().paused = false
 	fade(false)
 	buttons.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if config_loader.get_data("settings", "input_method") == config_loader.KEYBOARD:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	yield(get_tree().create_timer(tween.get_runtime()), "timeout")
 	if not tween.is_active():
 		visible = false
